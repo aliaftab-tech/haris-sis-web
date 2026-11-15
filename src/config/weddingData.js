@@ -1,6 +1,6 @@
 /**
  * Single source of truth for all wedding details.
- * To customize for another wedding (e.g. December wedding):
+ * To customize for Haris's sister's wedding in December:
  * simply update the values in this file!
  */
 
@@ -17,10 +17,10 @@ export const weddingData = {
     relation: "Daughter of"
   },
 
-  // Monogram & Wax Seal
+  // Monogram & Envelope Visuals
   monogram: "D & A",
   waxSealImage: "/images/wax_seal_exact.png",
-  envelopeTexture: "/images/envelope_texture.jpg",
+  envelopeSeamless: "/images/envelope_seamless.jpg",
 
   // Ceremony Type & Subtitles
   ceremony: {
@@ -31,12 +31,19 @@ export const weddingData = {
     loveNote: "Join us for an evening of love, laughter, duas, and unforgettable memories as we begin our forever."
   },
 
+  // Quranic Blessing
+  quranVerse: {
+    arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+    surah: "Surah Ar-Rum [30:21]",
+    translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."
+  },
+
   // Date & Countdown
   date: {
     day: "10",
     month: "January",
     year: "2027",
-    // Target ISO date for the live ticking countdown
+    fullDateString: "Sunday, 10 January 2027",
     targetDateIso: "2027-01-10T18:00:00+04:00"
   },
 
@@ -56,32 +63,27 @@ export const weddingData = {
     {
       time: "6:00 pm",
       title: "Guest Arrival and Welcome Drinks",
-      icon: "/images/icon_arch.png",
-      align: "left"
+      icon: "/images/icon_arch.png"
     },
     {
       time: "6:30 pm",
       title: "Bride Entrance",
-      icon: "/images/icon_bride.png",
-      align: "right"
+      icon: "/images/icon_bride.png"
     },
     {
       time: "7:30 pm",
       title: "Salat al Isha",
-      icon: "/images/icon_salat.png",
-      align: "left"
+      icon: "/images/icon_salat.png"
     },
     {
       time: "8:30 pm",
       title: "Buffet Opening",
-      icon: "/images/icon_buffet.png",
-      align: "right"
+      icon: "/images/icon_buffet.png"
     },
     {
       time: "10:00 pm",
       title: "Let the Fun Begin",
-      icon: "sparkles",
-      align: "left"
+      icon: "sparkles"
     }
   ],
 
@@ -103,10 +105,15 @@ export const weddingData = {
     ]
   },
 
+  // WhatsApp RSVP Contact Number (can be updated for Haris's sister's wedding)
+  rsvpContact: {
+    whatsappNumber: "923000000000",
+    defaultDua: "Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fee khair. Wishing you both a lifetime of happiness, peace, and barakah!"
+  },
+
   // Audio track extracted from original video
   audio: {
     src: "/audio/background_music.mp3",
     title: "Romantic Flute & Strings Wedding Melody"
   }
 }
-

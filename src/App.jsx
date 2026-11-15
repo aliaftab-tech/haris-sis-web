@@ -3,12 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import EnvelopeScreen from './components/EnvelopeScreen'
 import AudioPlayer from './components/AudioPlayer'
 import HeroSection from './components/HeroSection'
+import QuranBlessingSection from './components/QuranBlessingSection'
 import ScratchDateSection from './components/ScratchDateSection'
+import CalendarButton from './components/CalendarButton'
 import InvitationCardSection from './components/InvitationCardSection'
 import TimelineSection from './components/TimelineSection'
 import CountdownSection from './components/CountdownSection'
 import LocationSection from './components/LocationSection'
 import DressCodeSection from './components/DressCodeSection'
+import RSVPSection from './components/RSVPSection'
+import ShareBar from './components/ShareBar'
+import RomanticPetals from './components/RomanticPetals'
 import { weddingData } from './config/weddingData'
 
 export default function App() {
@@ -16,7 +21,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
 
-  // Start audio on envelope opening
+  // Start background audio on envelope opening
   const handleEnvelopeOpen = () => {
     setIsEnvelopeOpened(true)
     if (audioRef.current) {
@@ -42,7 +47,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#2D2825] flex justify-center items-start sm:py-6 overflow-x-hidden selection:bg-[#E5C378]/30">
+    <div className="w-full min-h-[100dvh] bg-[#FAF8F5] sm:bg-[#1E1B18] flex justify-center items-start sm:py-6 overflow-x-hidden selection:bg-[#E5C378]/30">
       {/* Hidden Loopable Background Audio */}
       <audio
         ref={audioRef}
@@ -51,58 +56,73 @@ export default function App() {
         loop
       />
 
-      {/* 3D Wax Seal Envelope Screen (Shown initially until guest taps) */}
+      {/* 3D 4-Flap Wax Seal Envelope Screen (Shown initially until guest taps) */}
       <AnimatePresence>
         {!isEnvelopeOpened && (
           <EnvelopeScreen onOpen={handleEnvelopeOpen} />
         )}
       </AnimatePresence>
 
-      {/* Main Wedding Invitation Card Container */}
+      {/* Floating Romantic Petals & Gold Dust Effect (Visible after opening) */}
+      {isEnvelopeOpened && <RomanticPetals />}
+
+      {/* Main Wedding Invitation Card Container (100% full screen on mobile, luxury phone mockup on desktop) */}
       <motion.main
-        initial={{ opacity: 0, scale: 0.97 }}
-        animate={isEnvelopeOpened ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={isEnvelopeOpened ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-[430px] min-h-screen bg-[#FAF8F5] sm:rounded-[36px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border sm:border-[#DFC99E]/40 overflow-hidden relative flex flex-col"
+        className="w-full max-w-[430px] min-h-[100dvh] bg-[#FAF8F5] sm:rounded-[36px] sm:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] sm:border sm:border-[#DFC99E]/40 overflow-hidden relative flex flex-col rounded-none border-none p-0"
       >
-        {/* Top iOS Status Bar Simulator for authentic phone look on desktop */}
-        <div className="w-full pt-3 px-6 pb-1 flex justify-between items-center text-[11px] font-sans font-medium text-[#7C6C5C] bg-[#F7F4EE] sm:block hidden">
+        {/* Desktop iPhone Dynamic Island Simulator */}
+        <div className="w-full pt-3 px-6 pb-1 justify-between items-center text-[11px] font-sans font-medium text-[#7C6C5C] bg-[#F7F4EE] sm:flex hidden">
           <span>20:40</span>
           <div className="w-24 h-4 bg-black/80 rounded-full mx-auto" />
+          <span>5G</span>
         </div>
 
-        {/* Section 1: Hero & Arch Screen */}
+        {/* 1. Hero & Arch Scene (Without duplicate text!) */}
         <HeroSection />
 
-        {/* Section 2: Interactive Scratch Date */}
+        {/* 2. Quranic Marriage Blessing Card */}
+        <QuranBlessingSection />
+
+        {/* 3. Interactive Scratch Date Cards */}
         <ScratchDateSection />
 
-        {/* Section 3: Formal Parents Invitation Announcement */}
+        {/* 4. "Add to Calendar" 1-Click Feature */}
+        <CalendarButton />
+
+        {/* 5. Formal Parents Invitation Announcement */}
         <InvitationCardSection />
 
-        {/* Section 4: Chronological Wedding Timeline */}
+        {/* 6. Chronological Wedding Day Timeline */}
         <TimelineSection />
 
-        {/* Section 5: Real-time Countdown Timer */}
+        {/* 7. Real-Time Celebration Countdown */}
         <CountdownSection />
 
-        {/* Section 6: Location & Interactive Map */}
+        {/* 8. Location & Interactive Google Maps */}
         <LocationSection />
 
-        {/* Section 7: Dress Code & Recommended Pastel Shades */}
+        {/* 9. Dress Code & Recommended Pastel Shades */}
         <DressCodeSection />
 
-        {/* Bottom Home Indicator Simulator for desktop view */}
-        <div className="w-full py-2 flex justify-center bg-[#FAF8F5] sm:block hidden">
+        {/* 10. WhatsApp RSVP & Heartfelt Dua Generator */}
+        <RSVPSection />
+
+        {/* 11. One-Tap Share Bar & Family Blessing Note */}
+        <ShareBar />
+
+        {/* Desktop Home Bar Indicator */}
+        <div className="w-full py-2 justify-center bg-[#FAF8F5] sm:flex hidden">
           <div className="w-32 h-1 bg-black/20 rounded-full mx-auto" />
         </div>
       </motion.main>
 
-      {/* Persistent Floating Audio Toggle */}
+      {/* Persistent Floating Audio Toggle (Bottom-Right) */}
       {isEnvelopeOpened && (
         <AudioPlayer isPlaying={isPlaying} togglePlay={togglePlay} />
       )}
     </div>
   )
 }
-
