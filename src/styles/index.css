@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    background-color: #ECE7DF;
+    color: #2D2825;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* Elegant Gold Gradient Texts */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B58A3E 0%, #D4AF37 35%, #F5E5A4 50%, #C49742 70%, #967027 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-metallic {
+  background: linear-gradient(180deg, #F3E7C4 0%, #C8A253 45%, #9B772E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3D Perspective for Envelope */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Golden border glows */
+.border-gold-ornate {
+  border: 1.5px solid rgba(197, 160, 89, 0.4);
+  box-shadow: inset 0 0 15px rgba(223, 201, 158, 0.15), 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.border-gold-double {
+  border: 3px double rgba(197, 160, 89, 0.55);
+}
+
+/* Shimmer animation for golden accents */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-gold-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(245,230,190,0.5) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: goldShimmer 3s infinite;
+}
+
+/* Subtle Floating Animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
