@@ -23,7 +23,7 @@ export default function RomanticPetals() {
     window.addEventListener('resize', handleResize)
 
     // Petals & Gold Dust Particles
-    const particleCount = 28
+    const particleCount = 26
     const particles = []
 
     for (let i = 0; i < particleCount; i++) {
@@ -31,12 +31,12 @@ export default function RomanticPetals() {
         x: Math.random() * width,
         y: Math.random() * height - height,
         size: Math.random() * 8 + 6,
-        speedY: Math.random() * 1.2 + 0.8,
-        speedX: Math.random() * 0.8 - 0.4,
+        speedY: Math.random() * 1.1 + 0.7,
+        speedX: Math.random() * 0.6 - 0.3,
         rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 1.5,
-        opacity: Math.random() * 0.5 + 0.35,
-        type: i % 3 === 0 ? 'gold' : 'petal' // 1/3 gold spark, 2/3 rose petal
+        rotationSpeed: (Math.random() - 0.5) * 1.2,
+        opacity: Math.random() * 0.45 + 0.3,
+        type: i % 3 === 0 ? 'gold' : 'petal'
       })
     }
 
@@ -50,16 +50,16 @@ export default function RomanticPetals() {
         // Golden diamond glitter sparkle
         ctx.fillStyle = '#E5C378'
         ctx.beginPath()
-        ctx.arc(0, 0, p.size * 0.25, 0, Math.PI * 2)
+        ctx.arc(0, 0, p.size * 0.22, 0, Math.PI * 2)
         ctx.fill()
-        // Cross sparkle
+        // Subtle shimmer cross
         ctx.strokeStyle = '#F8E7A2'
-        ctx.lineWidth = 1
+        ctx.lineWidth = 0.8
         ctx.beginPath()
-        ctx.moveTo(-p.size * 0.6, 0)
-        ctx.lineTo(p.size * 0.6, 0)
-        ctx.moveTo(0, -p.size * 0.6)
-        ctx.lineTo(0, p.size * 0.6)
+        ctx.moveTo(-p.size * 0.5, 0)
+        ctx.lineTo(p.size * 0.5, 0)
+        ctx.moveTo(0, -p.size * 0.5)
+        ctx.lineTo(0, p.size * 0.5)
         ctx.stroke()
       } else {
         // Soft blush/ivory rose petal
@@ -85,7 +85,7 @@ export default function RomanticPetals() {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
         p.y += p.speedY
-        p.x += Math.sin(p.y * 0.01) * 0.8 + p.speedX
+        p.x += Math.sin(p.y * 0.01) * 0.7 + p.speedX
         p.rotation += p.rotationSpeed
 
         if (p.y > height + 20) {
@@ -121,18 +121,17 @@ export default function RomanticPetals() {
       <div className="fixed bottom-5 left-5 z-50">
         <button
           onClick={() => setIsEnabled(!isEnabled)}
-          className={`flex items-center space-x-1 px-3 py-1.5 rounded-full text-xs font-serif backdrop-blur-md border shadow-lg transition-all duration-300 cursor-pointer ${
+          className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-serif tracking-wider backdrop-blur-md border shadow-md transition-all duration-300 cursor-pointer ${
             isEnabled
-              ? 'bg-white/85 text-[#8E6E34] border-[#DFC99E]'
-              : 'bg-black/40 text-white/70 border-white/20'
+              ? 'bg-[#FFFDF9]/90 text-[#8E6E34] border-[#DFC99E]'
+              : 'bg-black/35 text-white/70 border-white/20'
           }`}
-          title={isEnabled ? 'Pause falling petals' : 'Enable falling petals'}
+          title={isEnabled ? 'Pause falling rose petals' : 'Enable falling rose petals'}
         >
           <Sparkles className="w-3 h-3 text-[#C5A059]" />
-          <span>{isEnabled ? 'Petals ON' : 'Petals OFF'}</span>
+          <span>{isEnabled ? 'Petals' : 'Petals Off'}</span>
         </button>
       </div>
     </>
   )
 }
-

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { Sparkles } from 'lucide-react'
 import { weddingData } from '../config/weddingData'
@@ -11,81 +11,44 @@ export default function EnvelopeScreen({ onOpen }) {
     if (isOpening) return
     setIsOpening(true)
 
-    // Golden luxury particle confetti burst
+    // Gentle, soft golden shimmer particles (NOT a violent bubble blast)
     const rect = e?.currentTarget?.getBoundingClientRect?.()
     const x = rect ? (rect.left + rect.width / 2) / window.innerWidth : 0.5
     const y = rect ? (rect.top + rect.height / 2) / window.innerHeight : 0.5
 
-    // Central burst
+    // Subtle gentle golden confetti
     confetti({
-      particleCount: 65,
-      spread: 80,
+      particleCount: 30,
+      spread: 60,
       origin: { x, y },
-      colors: ['#D4AF37', '#F5E5A4', '#C5A059', '#FFFFFF', '#E6CA65', '#B8860B'],
-      ticks: 240,
-      gravity: 0.7,
-      scalar: 1.15,
-      shapes: ['circle', 'square']
+      colors: ['#D4AF37', '#F5E5A4', '#FFF8DC', '#E6CA65', '#FFFFFF'],
+      ticks: 160,
+      gravity: 0.6,
+      scalar: 0.85,
+      shapes: ['circle']
     })
 
-    // Side shimmer bursts
-    setTimeout(() => {
-      confetti({
-        particleCount: 30,
-        angle: 60,
-        spread: 55,
-        origin: { x: Math.max(0, x - 0.2), y },
-        colors: ['#D4AF37', '#FFF8DC', '#F5E5A4']
-      })
-      confetti({
-        particleCount: 30,
-        angle: 120,
-        spread: 55,
-        origin: { x: Math.min(1, x + 0.2), y },
-        colors: ['#D4AF37', '#FFF8DC', '#F5E5A4']
-      })
-    }, 200)
-
-    // Complete open transition after flap animations
+    // Slower, majestic transition (2.2 seconds) to reveal card smoothly
     setTimeout(() => {
       onOpen()
-    }, 1250)
+    }, 2200)
   }
 
   return (
     <div className="fixed inset-0 z-40 w-full h-[100dvh] flex items-center justify-center bg-[#FAF8F5] sm:bg-[#1E1B18] overflow-hidden select-none">
-      {/* Container: 100% full screen on mobile, elegant mobile mockup on desktop */}
+      {/* Container: 100% full screen on mobile, luxury phone mockup on desktop */}
       <div className="relative w-full h-[100dvh] sm:max-w-[430px] sm:h-[92vh] sm:max-h-[880px] sm:rounded-[36px] bg-[#FAF8F5] overflow-hidden flex items-center justify-center sm:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] sm:border sm:border-[#DFC99E]/50">
         
-        {/* Interior Silk Lining & Light Rays (Revealed as flaps part) */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#F7EED8] via-[#E8D4A2] to-[#FAF8F5] flex items-center justify-center"
-        >
-          {/* Subtle Golden Damask Silk texture */}
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]" />
+        {/* Interior Silk Lining (Revealed behind the opening flaps) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F9F3E5] via-[#EEDDB2] to-[#FAF8F5] flex items-center justify-center">
+          {/* Subtle golden shimmer texture */}
+          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]" />
 
-          {/* Golden Radiant Flare on Tap */}
-          <AnimatePresence>
-            {isOpening && (
-              <motion.div
-                initial={{ scale: 0.1, opacity: 0 }}
-                animate={{ scale: 3.5, opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.1, ease: 'easeOut' }}
-                className="absolute z-10 w-64 h-64 rounded-full pointer-events-none"
-                style={{
-                  background: 'radial-gradient(circle, rgba(255,250,230,1) 0%, rgba(225,185,95,0.7) 35%, rgba(255,255,255,0) 70%)',
-                  boxShadow: '0 0 90px 60px rgba(225,185,95,0.7)'
-                }}
-              />
-            )}
-          </AnimatePresence>
-
-          {/* Inner Card Glimpse Rising Up */}
+          {/* Inner Card Glimpse Rising Up (Smooth & Slow) */}
           <motion.div
-            initial={{ scale: 0.88, y: 30, opacity: 0 }}
-            animate={isOpening ? { scale: 1, y: 0, opacity: 1 } : { scale: 0.88, y: 30, opacity: 0 }}
-            transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ scale: 0.9, y: 35, opacity: 0 }}
+            animate={isOpening ? { scale: 1, y: 0, opacity: 1 } : { scale: 0.9, y: 35, opacity: 0 }}
+            transition={{ duration: 2.0, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-4 rounded-2xl bg-white shadow-xl overflow-hidden flex flex-col items-center justify-center p-4 border border-[#DFC99E]"
           >
             <div 
@@ -101,85 +64,86 @@ export default function EnvelopeScreen({ onOpen }) {
           {/* 1. TOP FLAP: Triangle pointing DOWN with top floral bouquet */}
           <motion.div
             animate={isOpening ? { y: '-105%', opacity: 0 } : { y: 0, opacity: 1 }}
-            transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${weddingData.envelopeSeamless})`,
               clipPath: 'polygon(0% 0%, 100% 0%, 50% 50%)',
-              filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.06))'
+              filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.06))'
             }}
           />
 
           {/* 2. BOTTOM FLAP: Triangle pointing UP with bottom floral bouquet */}
           <motion.div
             animate={isOpening ? { y: '105%', opacity: 0 } : { y: 0, opacity: 1 }}
-            transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${weddingData.envelopeSeamless})`,
               clipPath: 'polygon(0% 100%, 100% 100%, 50% 50%)',
-              filter: 'drop-shadow(0 -4px 6px rgba(0,0,0,0.06))'
+              filter: 'drop-shadow(0 -3px 6px rgba(0,0,0,0.06))'
             }}
           />
 
           {/* 3. LEFT FLAP: Triangle pointing RIGHT with left floral vine */}
           <motion.div
             animate={isOpening ? { x: '-105%', opacity: 0 } : { x: 0, opacity: 1 }}
-            transition={{ duration: 0.95, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 1.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${weddingData.envelopeSeamless})`,
               clipPath: 'polygon(0% 0%, 0% 100%, 50% 50%)',
-              filter: 'drop-shadow(4px 0 6px rgba(0,0,0,0.05))'
+              filter: 'drop-shadow(3px 0 6px rgba(0,0,0,0.05))'
             }}
           />
 
           {/* 4. RIGHT FLAP: Triangle pointing LEFT with right floral vine */}
           <motion.div
             animate={isOpening ? { x: '105%', opacity: 0 } : { x: 0, opacity: 1 }}
-            transition={{ duration: 0.95, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 1.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${weddingData.envelopeSeamless})`,
               clipPath: 'polygon(100% 0%, 100% 100%, 50% 50%)',
-              filter: 'drop-shadow(-4px 0 6px rgba(0,0,0,0.05))'
+              filter: 'drop-shadow(-3px 0 6px rgba(0,0,0,0.05))'
             }}
           />
         </div>
 
-        {/* Interactive Centered Wax Seal (Only ONE seal, sitting right at flap intersection) */}
-        <motion.div
-          animate={isOpening ? { scale: 1.35, opacity: 0, y: -15 } : { scale: [1, 1.03, 1] }}
-          transition={isOpening ? { duration: 0.65, ease: 'easeOut' } : { repeat: Infinity, duration: 3.2, ease: 'easeInOut' }}
-          className="absolute z-30 cursor-pointer flex items-center justify-center"
-          onClick={handleOpenEnvelope}
-          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-        >
-          {/* Golden Pulsing Shimmer Aura */}
-          {!isOpening && (
-            <div className="absolute -inset-5 rounded-full bg-gradient-to-r from-[#D4AF37]/35 via-[#F5E5A4]/45 to-[#D4AF37]/35 blur-md animate-pulse pointer-events-none" />
-          )}
+        {/* Centered Wax Seal Layer (Using flexbox for 100% dead-center alignment) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
+          <motion.div
+            animate={isOpening ? { scale: 1.25, opacity: 0 } : { scale: [1, 1.025, 1] }}
+            transition={isOpening ? { duration: 0.9, ease: 'easeOut' } : { repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+            className="pointer-events-auto cursor-pointer relative flex items-center justify-center"
+            onClick={handleOpenEnvelope}
+          >
+            {/* Soft Ambient Golden Pulse Aura */}
+            {!isOpening && (
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#D4AF37]/25 via-[#F5E5A4]/35 to-[#D4AF37]/25 blur-md animate-pulse pointer-events-none" />
+            )}
 
-          {/* Wax Seal Monogram */}
-          <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 drop-shadow-[0_12px_24px_rgba(150,110,40,0.38)] hover:scale-105 active:scale-95 transition-transform duration-300">
-            <img
-              src={weddingData.waxSealImage}
-              alt={`${weddingData.monogram} Wax Seal`}
-              className="w-full h-full object-contain rounded-full"
-            />
-          </div>
-        </motion.div>
+            {/* Wax Seal Image */}
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 drop-shadow-[0_12px_24px_rgba(150,110,40,0.35)] hover:scale-105 active:scale-95 transition-transform duration-300">
+              <img
+                src={weddingData.waxSealImage}
+                alt={`${weddingData.monogram} Wax Seal`}
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+          </motion.div>
+        </div>
 
-        {/* "Tap Seal to Open" Floating Badge */}
+        {/* Luxury "Tap to Open" Bottom Callout Pill */}
         <motion.div
           animate={isOpening ? { opacity: 0, y: 15 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="absolute bottom-10 z-30 flex flex-col items-center pointer-events-none px-4"
         >
-          <div className="flex items-center space-x-2 px-6 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-[#DFC99E] shadow-[0_4px_15px_rgba(197,160,89,0.25)] text-[#6D5428] text-xs font-serif tracking-[0.2em] uppercase font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-spin" style={{ animationDuration: '6s' }} />
-            <span>Tap seal to open</span>
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-spin" style={{ animationDuration: '6s' }} />
+          <div className="flex items-center space-x-2 px-6 py-2.5 rounded-full bg-[#FAF7F2]/90 backdrop-blur-md border border-[#DFC99E]/80 shadow-[0_4px_16px_rgba(197,160,89,0.18)] text-[#6D5428] text-[11px] font-serif tracking-[0.25em] uppercase font-medium">
+            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+            <span>Tap to Open Invitation</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
           </div>
         </motion.div>
       </div>

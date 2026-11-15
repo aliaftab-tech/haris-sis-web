@@ -1,9 +1,30 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles } from 'lucide-react'
+import {
+  WelcomeDrinksIcon,
+  BrideEntranceIcon,
+  SalatIshaIcon,
+  BanquetBuffetIcon,
+  CelebrationPartyIcon
+} from './TimelineIcons'
 import { weddingData } from '../config/weddingData'
 
 export default function TimelineSection() {
+  const getEventIcon = (index) => {
+    switch (index) {
+      case 0:
+        return <WelcomeDrinksIcon className="w-8 h-8 text-[#A8813B]" />
+      case 1:
+        return <BrideEntranceIcon className="w-8 h-8 text-[#A8813B]" />
+      case 2:
+        return <SalatIshaIcon className="w-8 h-8 text-[#A8813B]" />
+      case 3:
+        return <BanquetBuffetIcon className="w-8 h-8 text-[#A8813B]" />
+      default:
+        return <CelebrationPartyIcon className="w-8 h-8 text-[#A8813B]" />
+    }
+  }
+
   return (
     <section className="relative w-full py-12 px-4 flex flex-col items-center bg-[#FAF8F5]">
       {/* Section Header */}
@@ -27,7 +48,7 @@ export default function TimelineSection() {
       {/* Timeline Tree Container */}
       <div className="relative w-full max-w-sm flex flex-col items-center">
         {/* Central Vertical Golden Line */}
-        <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-[#C5A059]/10 via-[#C5A059]/70 to-[#C5A059]/10" />
+        <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-[#C5A059]/10 via-[#C5A059]/60 to-[#C5A059]/10" />
 
         {/* Timeline Events */}
         {weddingData.timeline.map((item, index) => {
@@ -51,18 +72,8 @@ export default function TimelineSection() {
               <div className={`flex ${isLeft ? 'justify-end pr-4' : 'justify-end pr-4 text-right'}`}>
                 {isLeft ? (
                   /* Icon on Left */
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
-                    {item.icon === 'sparkles' ? (
-                      <div className="w-12 h-12 rounded-full border border-[#C5A059]/50 bg-[#FFFDF9] flex items-center justify-center text-[#C5A059]">
-                        <Sparkles className="w-6 h-6" />
-                      </div>
-                    ) : (
-                      <img
-                        src={item.icon}
-                        alt={item.title}
-                        className="max-w-full max-h-full object-contain drop-shadow-sm"
-                      />
-                    )}
+                  <div className="w-14 h-14 rounded-full border border-[#DFC99E] bg-[#FFFDF9] shadow-[0_4px_12px_rgba(197,160,89,0.12)] flex items-center justify-center p-2.5">
+                    {getEventIcon(index)}
                   </div>
                 ) : (
                   /* Text on Left */
@@ -91,18 +102,8 @@ export default function TimelineSection() {
                   </div>
                 ) : (
                   /* Icon on Right */
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
-                    {item.icon === 'sparkles' ? (
-                      <div className="w-12 h-12 rounded-full border border-[#C5A059]/50 bg-[#FFFDF9] flex items-center justify-center text-[#C5A059]">
-                        <Sparkles className="w-6 h-6" />
-                      </div>
-                    ) : (
-                      <img
-                        src={item.icon}
-                        alt={item.title}
-                        className="max-w-full max-h-full object-contain drop-shadow-sm"
-                      />
-                    )}
+                  <div className="w-14 h-14 rounded-full border border-[#DFC99E] bg-[#FFFDF9] shadow-[0_4px_12px_rgba(197,160,89,0.12)] flex items-center justify-center p-2.5">
+                    {getEventIcon(index)}
                   </div>
                 )}
               </div>
@@ -113,4 +114,3 @@ export default function TimelineSection() {
     </section>
   )
 }
-
