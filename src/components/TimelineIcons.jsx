@@ -89,3 +89,4 @@ export function CelebrationPartyIcon({ className = "w-7 h-7 text-[#B58A3E]" }) {
     </svg>
   )
 }
+
