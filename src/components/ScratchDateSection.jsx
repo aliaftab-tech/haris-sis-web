@@ -6,7 +6,6 @@ import { weddingData } from '../config/weddingData'
 
 export default function ScratchDateSection() {
   const handleCardRevealed = () => {
-    // Mini gold sparkle confetti on scratch reveal
     confetti({
       particleCount: 25,
       spread: 45,
@@ -35,10 +34,10 @@ export default function ScratchDateSection() {
         transition={{ duration: 0.6 }}
         className="font-script text-4xl sm:text-5xl text-[#8E6E34] mb-1"
       >
-        The Date
+        Auspicious Dates
       </motion.h3>
 
-      {/* Instruction Subtitle */}
+      {/* Subtitle */}
       <motion.p 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -47,29 +46,28 @@ export default function ScratchDateSection() {
         className="text-[#967F5C] text-xs sm:text-sm tracking-widest font-serif mb-8 flex items-center space-x-1"
       >
         <span>✦</span>
-        <span>Scratch to reveal the date</span>
+        <span>Scratch to reveal the 3-day celebrations</span>
         <span>✦</span>
       </motion.p>
 
-      {/* 3 Scratch Cards Grid */}
-      <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm w-full justify-center">
+      {/* 3 Scratch Cards Grid (11 Mehndi, 12 Barat, 13 Walima) */}
+      <div className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-sm w-full justify-center">
         <ScratchCard
-          value={weddingData.date.day}
-          label="DAY"
+          value="11 DEC"
+          label="MEHNDI"
           onScratchComplete={handleCardRevealed}
         />
         <ScratchCard
-          value={weddingData.date.month}
-          label="MONTH"
+          value="12 DEC"
+          label="BARAT"
           onScratchComplete={handleCardRevealed}
         />
         <ScratchCard
-          value={weddingData.date.year}
-          label="YEAR"
+          value="13 DEC"
+          label="WALIMA"
           onScratchComplete={handleCardRevealed}
         />
       </div>
     </section>
   )
 }
-

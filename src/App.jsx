@@ -5,6 +5,7 @@ import AudioPlayer from './components/AudioPlayer'
 import HeroSection from './components/HeroSection'
 import QuranBlessingSection from './components/QuranBlessingSection'
 import ScratchDateSection from './components/ScratchDateSection'
+import EventsProgramSection from './components/EventsProgramSection'
 import CalendarButton from './components/CalendarButton'
 import InvitationCardSection from './components/InvitationCardSection'
 import TimelineSection from './components/TimelineSection'
@@ -80,37 +81,40 @@ export default function App() {
           <span>5G</span>
         </div>
 
-        {/* 1. Hero & Arch Scene (Without duplicate text!) */}
+        {/* 1. Hero & Palace Arch Scene (4K Generated Artwork & Clean Gold Typography) */}
         <HeroSection />
 
         {/* 2. Quranic Marriage Blessing Card */}
         <QuranBlessingSection />
 
-        {/* 3. Interactive Scratch Date Cards */}
+        {/* 3. Interactive Scratch Date Cards (11 Mehndi, 12 Barat, 13 Walima) */}
         <ScratchDateSection />
 
-        {/* 4. "Add to Calendar" 1-Click Feature */}
+        {/* 4. "Save Dates to Calendar" 1-Click Feature */}
         <CalendarButton />
 
-        {/* 5. Formal Parents Invitation Announcement */}
+        {/* 5. 3-Day Celebrations Program (Mehndi | Barat | Walima Tabs) */}
+        <EventsProgramSection />
+
+        {/* 6. Formal Family Invitation Announcement */}
         <InvitationCardSection />
 
-        {/* 6. Chronological Wedding Day Timeline */}
+        {/* 7. Chronological Barat Day Timeline (Bespoke Royal Vector SVG Icons) */}
         <TimelineSection />
 
-        {/* 7. Real-Time Celebration Countdown */}
+        {/* 8. Real-Time Countdown to 11th December 2026 */}
         <CountdownSection />
 
-        {/* 8. Location & Interactive Google Maps */}
+        {/* 9. 4K Venue Photography & Interactive Google Maps */}
         <LocationSection />
 
-        {/* 9. Dress Code & Recommended Pastel Shades */}
+        {/* 10. 4K Couture Fashion Illustration & Pastel Palette */}
         <DressCodeSection />
 
-        {/* 10. WhatsApp RSVP & Heartfelt Dua Generator */}
+        {/* 11. WhatsApp RSVP & Heartfelt Dua Generator */}
         <RSVPSection />
 
-        {/* 11. One-Tap Share Bar & Family Blessing Note */}
+        {/* 12. One-Tap Share Bar & Family Blessing Note */}
         <ShareBar />
 
         {/* Desktop Home Bar Indicator */}

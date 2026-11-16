@@ -144,9 +144,20 @@ export default function ScratchCard({ value, label, onScratchComplete }) {
       >
         {/* Revealed Content Underneath */}
         <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center pointer-events-none">
-          <span className="font-display font-medium text-2xl sm:text-3xl text-[#3A2D1F]">
-            {value}
-          </span>
+          {value.includes(' ') ? (
+            <>
+              <span className="font-display font-bold text-3xl sm:text-4xl text-[#3A2D1F] leading-none">
+                {value.split(' ')[0]}
+              </span>
+              <span className="font-sans text-[10px] sm:text-[11px] tracking-widest text-[#8E6E34] uppercase font-bold mt-1">
+                {value.split(' ')[1]}
+              </span>
+            </>
+          ) : (
+            <span className="font-display font-medium text-2xl sm:text-3xl text-[#3A2D1F]">
+              {value}
+            </span>
+          )}
         </div>
 
         {/* Scratchable Canvas Layer */}

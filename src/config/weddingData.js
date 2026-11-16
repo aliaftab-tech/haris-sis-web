@@ -1,117 +1,160 @@
 /**
- * Single source of truth for all wedding details.
- * To customize for Haris's sister's wedding in December:
- * simply update the values in this file!
+ * Single source of truth for Ali Hamza & Fariha Tariq's Wedding (December 2026).
+ * Mehndi: 11 Dec | Barat: 12 Dec | Walima: 13 Dec
+ * Host: Haris & Family
  */
 
 export const weddingData = {
-  // Couple Information
+  // Couple & Family Details
+  family: {
+    eventHost: "Haris & Family",
+    sisterTitle: "Beloved Sister's Wedding",
+  },
   groom: {
-    name: "Daanish",
-    parents: "Mr. & Mrs. Ch. Hussaini",
+    name: "Ali Hamza",
+    parents: "Mr. Ghulam Sabir",
     relation: "Son of"
   },
   bride: {
-    name: "Adeena",
-    parents: "Mr. & Mrs. Ch. Farooqi",
+    name: "Fariha Tariq",
+    parents: "Mr. Tariq Muhammad Umar",
     relation: "Daughter of"
   },
 
-  // Monogram & Envelope Visuals
-  monogram: "D & A",
-  waxSealImage: "/images/wax_seal_exact.png",
-  envelopeSeamless: "/images/envelope_seamless.jpg",
+  // Monogram & 4K Visual Assets
+  monogram: "A & F",
+  waxSealImage: "/images/wax_seal_af_couture.png",
+  envelopeImage: "/images/envelope_pure_4k.jpg",
+  heroImage: "/images/hero_palace_4k.jpg",
+  venueImage: "/images/venue_luxury_ballroom.jpg",
+  dressCodeImage: "/images/dresscode_pastel_couture.png",
 
-  // Ceremony Type & Subtitles
+  // Ceremony Quotes & Headings
   ceremony: {
-    welcomePrefix: "Welcome to the",
-    title: "Nikkah Ceremony",
-    invitationHeading: "YOU ARE INVITED TO THE NIKKAH CEREMONY OF",
-    introMessage: "Dear Friends and Family",
-    loveNote: "Join us for an evening of love, laughter, duas, and unforgettable memories as we begin our forever."
+    welcomePrefix: "In the Name of Allah, the Most Gracious, the Most Merciful",
+    title: "Wedding Celebrations",
+    invitationHeading: "YOU ARE CORDIALLY INVITED TO CELEBRATE THE AUSPICIOUS NIKKAH & WEDDING OF",
+    introMessage: "Dear Respected Family & Friends",
+    loveNote: "Join us with your warm presence and heartfelt duas as we celebrate this blessed milestone and begin our eternal journey."
   },
+
+  // 3-Day Wedding Events (11, 12, 13 December 2026)
+  events: [
+    {
+      id: "mehndi",
+      name: "Mehndi Ceremony",
+      urduTitle: "مَہندی و مایوں",
+      date: "Friday, 11th December 2026",
+      dayNumber: "11",
+      month: "DEC",
+      year: "2026",
+      time: "07:00 PM",
+      venue: "The Royal Marquee / Grand Lawn",
+      themeColor: "#E09F3E",
+      dressTheme: "Vibrant Yellows, Festive Green, Mustard & Traditional Kurtas",
+      highlights: "Rasm-e-Henna, Dholak Sangeet, Traditional Feasts & Musical Night"
+    },
+    {
+      id: "barat",
+      name: "Barat & Nikkah",
+      urduTitle: "بَارات و نکاح",
+      date: "Saturday, 12th December 2026",
+      dayNumber: "12",
+      month: "DEC",
+      year: "2026",
+      time: "06:00 PM",
+      venue: "Grand Crystal Ballroom, Luxury Hotel",
+      themeColor: "#C5A059",
+      dressTheme: "Royal Traditional Sherwanis, Bridal Lehengas & Formal Attire",
+      highlights: "Baraat Welcome, Sacred Nikkah Vows, Royal Feast & Emotional Rukhsati"
+    },
+    {
+      id: "walima",
+      name: "Walima Reception",
+      urduTitle: "دعوتِ ولیمہ",
+      date: "Sunday, 13th December 2026",
+      dayNumber: "13",
+      month: "DEC",
+      year: "2026",
+      time: "07:30 PM",
+      venue: "The Imperial Ballroom & Courtyard",
+      themeColor: "#8E6E34",
+      dressTheme: "Soft Pastel Shades, Glamour Chiffons & Black Tie Suits",
+      highlights: "Couple Grand Entrance, Royal Banquet Dinner & Family Duas"
+    }
+  ],
+
+  // Primary countdown to first day (11 December 2026, 19:00 PKT)
+  countdownTarget: "2026-12-11T19:00:00+05:00",
 
   // Quranic Blessing
   quranVerse: {
     arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
     surah: "Surah Ar-Rum [30:21]",
-    translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."
+    translation: "And among His signs is that He created for you mates from among yourselves that you may dwell in tranquility with them; and He placed between you affection and mercy."
   },
 
-  // Date & Countdown
-  date: {
-    day: "10",
-    month: "January",
-    year: "2027",
-    fullDateString: "Sunday, 10 January 2027",
-    targetDateIso: "2027-01-10T18:00:00+04:00"
-  },
-
-  // Venue & Location
+  // Venue Details
   venue: {
-    city: "DUBAI",
-    name: "Four Seasons Hotel in Jumeirah, Dana Ballroom",
-    address: "Jumeirah Beach Road, Jumeirah 2, Dubai, United Arab Emirates",
-    heroImage: "/images/venue_clean.jpg",
-    entranceImage: "/images/venue_entrance.jpg",
-    mapImage: "/images/map_preview.jpg",
-    googleMapsUrl: "https://maps.google.com/?q=Four+Seasons+Resort+Dubai+at+Jumeirah+Beach"
+    city: "ISLAMABAD / LAHORE",
+    name: "The Grand Royal Palace & Ballroom",
+    address: "Grand Avenue, Luxury Enclave",
+    googleMapsUrl: "https://maps.google.com/?q=Islamabad+Serena+Hotel"
   },
 
-  // Wedding Day Timeline
+  // Barat Day Timeline
   timeline: [
     {
-      time: "6:00 pm",
-      title: "Guest Arrival and Welcome Drinks",
-      icon: "/images/icon_arch.png"
+      time: "6:00 PM",
+      title: "Guest Arrival & Welcome Drinks",
+      desc: "Warm welcome with Kashmiri Chai and fresh refreshments"
     },
     {
-      time: "6:30 pm",
-      title: "Bride Entrance",
-      icon: "/images/icon_bride.png"
+      time: "6:45 PM",
+      title: "Grand Baraat Arrival",
+      desc: "Welcoming Ali Hamza with royal traditional pomp"
     },
     {
-      time: "7:30 pm",
-      title: "Salat al Isha",
-      icon: "/images/icon_salat.png"
+      time: "7:30 PM",
+      title: "Auspicious Nikkah Ceremony",
+      desc: "Sacred vows & heartfelt congregational prayers"
     },
     {
-      time: "8:30 pm",
-      title: "Buffet Opening",
-      icon: "/images/icon_buffet.png"
+      time: "8:30 PM",
+      title: "Royal Dinner Buffet",
+      desc: "Exquisite multi-cuisine wedding banquet"
     },
     {
-      time: "10:00 pm",
-      title: "Let the Fun Begin",
-      icon: "sparkles"
+      time: "10:30 PM",
+      title: "Rukhsati & Blessings",
+      desc: "Sending off Fariha with tears of joy, Quranic shadow, and prayers"
     }
   ],
 
   // Dress Code
   dressCode: {
     title: "Dress Code",
-    tagline: "We kindly invite our guests to dress in Traditional Pakistani Attire in soft pastel shades.",
-    illustration: "/images/dress_models.png",
+    tagline: "We cordially invite our guests to dress in Traditional Pakistani Attire in soft pastel shades.",
     recommendedShades: [
       { name: "Lavender Mist", hex: "#D4C5E9" },
-      { name: "Peach Glow", hex: "#F6CDB8" },
-      { name: "Pastel Buttercup", hex: "#F6E69E" },
-      { name: "Blush Rose", hex: "#E8B4B8" },
-      { name: "Soft Silver Sage", hex: "#CDD4C6" }
+      { name: "Blush Peach", hex: "#F6CDB8" },
+      { name: "Pastel Lemon", hex: "#F6E69E" },
+      { name: "Dusty Rose", hex: "#E8B4B8" },
+      { name: "Sage Mint", hex: "#CDD4C6" }
     ],
     guidelines: [
-      "Please avoid wearing beige and champagne: reserved for the bride and groom.",
-      "Sage green is reserved exclusively for the bridesmaids."
+      "Please avoid wearing bridal red & pure white: reserved for the bride.",
+      "Soft pastels and traditional ethnic sherwanis/formals are warmly celebrated."
     ]
   },
 
-  // WhatsApp RSVP Contact Number (can be updated for Haris's sister's wedding)
+  // WhatsApp RSVP Contact
   rsvpContact: {
     whatsappNumber: "923000000000",
-    defaultDua: "Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fee khair. Wishing you both a lifetime of happiness, peace, and barakah!"
+    defaultDua: "Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fee khair. Heartiest congratulations to Ali Hamza, Fariha Tariq, and Haris's family!"
   },
 
-  // Audio track extracted from original video
+  // Audio track
   audio: {
     src: "/audio/background_music.mp3",
     title: "Romantic Flute & Strings Wedding Melody"
